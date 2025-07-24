@@ -1,9 +1,10 @@
-.PHONY: cleanup
+.PHONY: setup_cleanup apply clean update \
+	install_rust install_zed
 
 setup_cleanup:
 	brew analytics off
 
-	cp -r ../remote_dotfiles/ ~/dotfiles/ && \
+	cp -r ./remote_dotfiles/ ~/dotfiles/ && \
 	cd ~/dotfiles && stow .
 
 apply:
@@ -14,3 +15,11 @@ clean:
 
 update:
 	nix flake update
+
+#Misc
+
+install_zed:
+	curl -f https://zed.dev/install.sh | sh
+
+install_rust:
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

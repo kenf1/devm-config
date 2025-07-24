@@ -1,5 +1,5 @@
 {
-  description = "DevM base";
+  description = "Setup devm";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -31,8 +31,10 @@
             finder.AppleShowAllExtensions = true;
             screencapture.location = "~/Downloads/screenshots";
             dock.persistent-apps = [
-              "/Applications/Brave Browser.app"
-              "/Applications/VSCodium.app"
+              "/Applications/Nix Apps/Firefox.app"
+              "/Applications/Nix Apps/Brave Browser.app"
+              "/Applications/GitHub Desktop.app"
+              "/Applications/Nix Apps/VSCodium.app"
               "/Applications/Ghostty.app"
               "/System/Applications/System Settings.app"
             ];
@@ -49,24 +51,30 @@
           environment.systemPackages = [
             pkgs.nixfmt
             pkgs.stow
-
             pkgs.git
             pkgs.gnumake
 
             pkgs.bat
             pkgs.oh-my-posh
-
             pkgs.neovim
-            pkgs.ipfetch
 
             pkgs.firefox-unwrapped
             pkgs.brave
+            pkgs.vscodium
+            pkgs.localsend
+
+            #pkgs.go
+            #pkgs.python313Full
+            #pkgs.exif
+            #pkgs.ipfetch
           ];
 
           homebrew = {
             enable = true;
             casks = [
               "ghostty"
+              "github"
+              #"exifcleaner"
             ];
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;

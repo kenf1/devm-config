@@ -4,6 +4,10 @@
 - https://brew.sh/
 - https://github.com/nix-darwin/nix-darwin
 
+### Others
+
+- https://nvchad.com/
+
 ### Examples
 
 - https://github.com/wimpysworld/nix-config
