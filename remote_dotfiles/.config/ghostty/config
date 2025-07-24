@@ -1,0 +1,22 @@
+#Styles
+title = "Ghostty"
+
+font-size = 13
+window-padding-x = 13
+window-padding-y = 7
+
+theme = dark:NvimDark,light:NvimLight
+
+window-theme = dark
+window-width = 75
+window-height = 25
+
+macos-titlebar-style = transparent
+
+#Settings
+window-save-state = never
+auto-update = off
+
+#Keybinds
+keybind = shift+ctrl+left_bracket=previous_tab
+keybind = shift+ctrl+right_bracket=next_tab
