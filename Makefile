@@ -1,4 +1,5 @@
 .PHONY: setup_cleanup apply clean update \
+	sndc \
 	install_rust install_zed
 
 setup_cleanup:
@@ -9,6 +10,7 @@ setup_cleanup:
 
 apply:
 	sudo darwin-rebuild switch --flake ~/nix#devm
+	brew analytics off
 
 clean:
 	nix-collect-garbage
@@ -16,7 +18,8 @@ clean:
 update:
 	nix flake update
 
-#Misc
+sndc: #Setup nix dev container
+	cp -r devcontainer-nix/.devcontainer .devcontainer
 
 install_zed:
 	curl -f https://zed.dev/install.sh | sh

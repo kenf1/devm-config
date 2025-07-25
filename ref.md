@@ -7,6 +7,7 @@
 ### Others
 
 - https://nvchad.com/
+- https://github.com/lucernae/devcontainer-nix
 
 ### Examples
 
