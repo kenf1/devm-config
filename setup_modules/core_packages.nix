@@ -7,6 +7,7 @@
     pkgs.gnumake
     pkgs.bat
     pkgs.oh-my-posh
+    pkgs.fzf
     pkgs.neovim
 
     pkgs.firefox-unwrapped

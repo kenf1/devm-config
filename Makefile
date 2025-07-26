@@ -1,6 +1,5 @@
 .PHONY: setup_cleanup apply clean update \
-	sndc \
-	install_rust install_zed
+	install_nvc install_rust install_zed
 
 setup_cleanup:
 	brew analytics off
@@ -18,8 +17,8 @@ clean:
 update:
 	nix flake update
 
-sndc: #Setup nix dev container
-	cp -r devcontainer-nix/.devcontainer .devcontainer
+install_nvc:
+	git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
 install_zed:
 	curl -f https://zed.dev/install.sh | sh

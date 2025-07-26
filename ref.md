@@ -1,8 +1,14 @@
 ## References
 
+### Packages
+
 - https://search.nixos.org/packages
 - https://brew.sh/
+
+### Settings
+
 - https://github.com/nix-darwin/nix-darwin
+- https://nix-darwin.github.io/nix-darwin/manual/index.html
 
 ### Others
 
