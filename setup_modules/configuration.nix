@@ -1,31 +1,38 @@
 { pkgs, ... }:
 {
   system.primaryUser = "devm";
+  nixpkgs.hostPlatform = "aarch64-darwin";
 
   system.defaults = {
-    dock.orientation = "left";
-    dock.mru-spaces = false;
-    dock.persistent-apps = [
-      "/Applications/Nix Apps/Firefox.app"
-      "/Applications/Nix Apps/Brave Browser.app"
-      "/Applications/GitHub Desktop.app"
-      "/Applications/Nix Apps/VSCodium.app"
-      "/Applications/Ghostty.app"
-      "/Applications/Nix Apps/LocalSend.app"
-      "/System/Applications/System Settings.app"
-    ];
+    dock = {
+      orientation = "left";
+      mru-spaces = false;
+      persistent-apps = [
+        "/Applications/Nix Apps/Firefox.app"
+        "/Applications/Nix Apps/Brave Browser.app"
+        "/Applications/GitHub Desktop.app"
+        "/Applications/Nix Apps/VSCodium.app"
+        "/Applications/Ghostty.app"
+        "/Applications/Nix Apps/LocalSend.app"
+        "/System/Applications/System Settings.app"
+      ];
+    };
 
-    finder.AppleShowAllExtensions = true;
-    finder.NewWindowTarget = "Home";
-    finder.FXRemoveOldTrashItems = true;
-    finder.ShowPathbar = true;
-    finder.ShowRemovableMediaOnDesktop = false;
+    finder = {
+      NewWindowTarget = "Home";
+      AppleShowAllExtensions = true;
+      FXRemoveOldTrashItems = true;
+      ShowPathbar = true;
+      ShowRemovableMediaOnDesktop = false;
+    };
 
-    NSGlobalDomain.AppleInterfaceStyle = "Dark";
-    NSGlobalDomain.KeyRepeat = 2;
-    NSGlobalDomain.AppleEnableMouseSwipeNavigateWithScrolls = false;
-    NSGlobalDomain.AppleEnableSwipeNavigateWithScrolls = false;
-    NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" = 1;
+    NSGlobalDomain = {
+      AppleInterfaceStyle = "Dark";
+      KeyRepeat = 2;
+      AppleEnableMouseSwipeNavigateWithScrolls = false;
+      AppleEnableSwipeNavigateWithScrolls = false;
+      "com.apple.trackpad.trackpadCornerClickBehavior" = 1;
+    };
 
     screencapture.location = "~/Downloads/screenshots";
     loginwindow.GuestEnabled = false;
@@ -42,6 +49,4 @@
   # Set Git commit hash for darwin-version.
   system.configurationRevision = pkgs.lib.mkDefault null;
   system.stateVersion = 6;
-
-  nixpkgs.hostPlatform = "aarch64-darwin";
 }
