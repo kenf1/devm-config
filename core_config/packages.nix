@@ -14,5 +14,6 @@
     pkgs.brave
     pkgs.vscodium
     pkgs.localsend
+    pkgs.gh
   ];
 }
