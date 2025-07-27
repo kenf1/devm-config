@@ -11,3 +11,4 @@ zig-out/
 #Misc
 .DS_Store
 Dev/
+.dev/
