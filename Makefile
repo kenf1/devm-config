@@ -7,8 +7,9 @@ setup_cleanup:
 	cp -r ./remote_dotfiles/ ~/dotfiles/ && \
 	cd ~/dotfiles && stow .
 
+#base config
 apply: update
-	sudo darwin-rebuild switch --flake ~/nix#devm
+	sudo darwin-rebuild switch --flake ~/nix#base
 	brew analytics off
 
 clean:

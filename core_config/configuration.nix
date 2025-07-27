@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  system.primaryUser = "devm";
+  system.primaryUser = "username";
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   system.defaults = {

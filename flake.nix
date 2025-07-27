@@ -1,5 +1,5 @@
 {
-  description = "Setup devm";
+  description = "Setup dev machine";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -23,19 +23,28 @@
     }:
 
     let
-      configurationModules = [
-        ./setup_modules/configuration.nix
-        ./setup_modules/core_packages.nix
-        ./setup_modules/brew_casks.nix
-        ./setup_modules/fonts.nix
+      commonModules = [
+        ./core_config/configuration.nix
+        ./core_config/packages.nix
+        ./core_config/brew.nix
+        ./core_config/fonts.nix
         nix-homebrew.darwinModules.nix-homebrew
       ];
     in
     {
-      darwinConfigurations."devm" = nix-darwin.lib.darwinSystem {
-        modules = configurationModules;
-      };
+      darwinConfigurations = {
+        "base" = nix-darwin.lib.darwinSystem {
+          modules = commonModules ++ [
+            nix-homebrew.darwinModules.nix-homebrew
+          ];
+        };
 
-      darwinPackages = self.darwinConfigurations."devm".pkgs;
+        "javadev" = nix-darwin.lib.darwinSystem {
+          modules = commonModules ++ [
+            nix-homebrew.darwinModules.nix-homebrew
+            ./setup_modules/brew_casks_devj.nix
+          ];
+        };
+      };
     };
 }
