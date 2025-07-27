@@ -12,3 +12,4 @@ zig-out/
 .DS_Store
 Dev/
 .dev/
+user.txt

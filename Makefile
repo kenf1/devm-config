@@ -12,9 +12,11 @@ setup_cleanup:
 update:
 	nix flake update
 
+#apply + reset user.nix contents
 define nix_apply
 	sudo darwin-rebuild switch --flake ~/nix#$1
 	brew analytics off
+	git checkout -- user.nix
 endef
 
 #base config

@@ -1,6 +1,9 @@
 { pkgs, ... }:
+let
+  user = import ../user.nix;
+in
 {
-  system.primaryUser = "username";
+  system.primaryUser = user.primaryUser;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   system.defaults = {
