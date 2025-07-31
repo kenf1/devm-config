@@ -42,7 +42,8 @@
         "javadev" = nix-darwin.lib.darwinSystem {
           modules = commonModules ++ [
             nix-homebrew.darwinModules.nix-homebrew
-            ./misc_config/javadev/brew.nix
+            ./misc_config/javadev/packages.nix
+            # ./misc_config/javadev/brew.nix #nix > homebrew
           ];
         };
 
