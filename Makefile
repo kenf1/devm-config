@@ -1,4 +1,4 @@
-.PHONY: setup_cleanup apply ajd adsd clean update \
+.PHONY: setup_cleanup base basedev javadev dsdev clean update \
 	install_rust install_zed
 
 setup_cleanup:
@@ -8,6 +8,7 @@ setup_cleanup:
 	cd ~/dotfiles && stow .
 
 	git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+	sh ./scripts/codium_ext.sh
 
 update:
 	nix flake update
@@ -16,19 +17,23 @@ update:
 define nix_apply
 	sudo darwin-rebuild switch --flake ~/nix#$1
 	brew analytics off
-	git checkout -- user.nix
+	git restore --staged -- user.nix && git restore user.nix
 endef
 
 #base config
-apply: update
+base: update
 	$(call nix_apply,base)
 
+#base dev wrapper
+basedev: base setup_cleanup clean
+	git config --global core.editor nvim
+
 #java dev
-ajd: update
+javadev: update clean
 	$(call nix_apply,javadev)
 
 #ds dev
-adsd: update
+dsdev: update clean
 	$(call nix_apply,dsdev)
 
 clean:

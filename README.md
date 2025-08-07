@@ -1,19 +1,18 @@
 ## Quickly spin up dev machine
 
-Download nix + nix-darwin
+One line install for dev machine. Try curl, fallback to wget.
 
-```
-sh ./scripts/initial_setup.sh
-```
+### Linux
 
-Install everything
-
-```
-make apply
+```shell
+curl -fsSL https://raw.githubusercontent.com/kenf1/dotconfig/refs/heads/main/scripts/linux_setup.sh | sh || wget -qO- https://raw.githubusercontent.com/kenf1/dotconfig/refs/heads/main/scripts/linux_setup.sh | sh
 ```
 
-Cleanup & start working
+### macOS
 
-```
-make setup_cleanup
+1. Download nix + nix-darwin
+2. Install everything + cleanup & start working
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/kenf1/dotconfig/refs/heads/main/scripts/initial_setup.sh | sh || wget -qO- https://raw.githubusercontent.com/kenf1/dotconfig/refs/heads/main/scripts/initial_setup.sh | sh && make basedev
 ```

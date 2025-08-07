@@ -9,6 +9,7 @@
       "ghostty"
       "lulu"
       "github"
+      "pearcleaner"
     ];
 
     onActivation = {
