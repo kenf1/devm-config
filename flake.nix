@@ -28,7 +28,6 @@
         ./core_config/packages.nix
         ./core_config/brew.nix
         ./core_config/fonts.nix
-        nix-homebrew.darwinModules.nix-homebrew
       ];
     in
     {
@@ -51,6 +50,15 @@
           modules = commonModules ++ [
             nix-homebrew.darwinModules.nix-homebrew
             ./misc_config/dsdev/packages.nix
+          ];
+        };
+      };
+
+      nixosConfigurations = {
+        "base-linux" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = commonModules ++ [
+            ./linux_config/configuration.nix
           ];
         };
       };
