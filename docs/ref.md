@@ -14,6 +14,7 @@
 
 - https://nvchad.com/
 - https://github.com/lucernae/devcontainer-nix
+- https://github.com/mcarvalho1/Simple-NerdFonts-Downloader
 
 ### Examples
 
