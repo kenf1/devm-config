@@ -1,19 +1,21 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = [
-    pkgs.nixfmt
-    pkgs.stow
-    pkgs.git
-    pkgs.gnumake
-    pkgs.bat
-    pkgs.oh-my-posh
-    pkgs.fzf
-    pkgs.neovim
+  environment.systemPackages = (with pkgs; [
+    nixfmt
+    nixd
+    nil #https://github.com/nix-community/vscode-nix-ide/issues/428
+    stow
+    git
+    gnumake
+    bat
+    oh-my-posh
+    fzf
+    neovim
 
-    pkgs.firefox-unwrapped
-    pkgs.brave
-    pkgs.vscodium
-    pkgs.localsend
-    pkgs.gh
-  ];
+    firefox-unwrapped
+    brave
+    vscodium
+    localsend
+    gh
+  ]);
 }

@@ -3,7 +3,10 @@
   homebrew = {
     enable = true;
 
-    brews = [ ];
+    brews = [ 
+      "node"
+      "oh-my-posh"
+    ];
 
     casks = [
       "ghostty"
