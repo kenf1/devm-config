@@ -1,0 +1,24 @@
+## Alpine setup
+
+```shell
+setup-alpine
+setup-keymap us us
+```
+
+Install sudo: uncomment `community` entry in `/etc/apk/repositories`
+
+```shell
+apk add sudo && sudo apt add neovim
+```
+
+Shutdown
+
+```shell
+sudo poweroff
+```
+
+Cache clean
+
+```shell
+apk -v cache clean
+```

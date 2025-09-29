@@ -1,11 +1,11 @@
-## Quickly spin up dev machine
+## My dotfiles
 
-One line install for dev machine. Try curl, fallback to wget.
+One line install for dev machine fleet. Try curl, fallback to wget.
 
 ### Linux
 
 ```shell
-curl -fsSL https://raw.githubusercontent.com/kenf1/dotconfig/refs/heads/main/scripts/linux_setup.sh | sh || wget -qO- https://raw.githubusercontent.com/kenf1/dotconfig/refs/heads/main/scripts/linux_setup.sh | sh
+curl -fsSL https://raw.githubusercontent.com/kenf1/dotfiles/refs/heads/main/scripts/linux_setup.sh | sh || wget -qO- https://raw.githubusercontent.com/kenf1/dotfiles/refs/heads/main/scripts/linux_setup.sh | sh
 ```
 
 ### macOS
@@ -15,5 +15,5 @@ curl -fsSL https://raw.githubusercontent.com/kenf1/dotconfig/refs/heads/main/scr
 3. Install everything + cleanup & start working
 
 ```shell
-curl -fsSL https://raw.githubusercontent.com/kenf1/dotconfig/refs/heads/main/scripts/initial_setup.sh
+curl -fsSL https://raw.githubusercontent.com/kenf1/dotfiles/refs/heads/main/scripts/initial_setup.sh
 ```
