@@ -1,4 +1,4 @@
-## References
+## Reference
 
 ### Packages
 
@@ -21,3 +21,5 @@
 - https://github.com/wimpysworld/nix-config
 - https://github.com/mitchellh/nixos-config
 - https://github.com/shayne/nixos-config
+- https://github.com/LorenzoBettini/my_kde_role
+- https://github.com/linuxpiper/ansible-arch-setup

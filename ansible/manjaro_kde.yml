@@ -1,0 +1,32 @@
+---
+- name: Minimal KDE Plasma on Manjaro
+  hosts: manjaro_hosts
+  become: yes
+  tasks:
+    - name: Refresh pacman mirrors and update system
+      pacman:
+        update_cache: yes
+        upgrade: yes
+
+    - name: Install essential packages
+      pacman:
+        name:
+          - plasma-desktop
+          - sddm
+          - konsole
+          - dolphin
+          - xorg-server
+          - xorg-apps
+          - xorg-xinit
+        state: present
+
+    - name: Enable SDDM display manager
+      systemd:
+        name: sddm.service
+        enabled: yes
+        state: started
+
+    - name: Disable systemd-networkd service
+      ansible.builtin.systemd:
+        name: systemd-networkd.service
+        enabled: false
