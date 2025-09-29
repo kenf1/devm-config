@@ -1,0 +1,61 @@
+---
+- name: GNOME system cleanup
+  hosts: all
+  become: true
+  tasks:
+    - name: Disable systemd-networkd service
+      ansible.builtin.systemd:
+        name: systemd-networkd.service
+        enabled: false
+
+    - name: Remove unused apt applications
+      ansible.builtin.apt:
+        name:
+          - simple-scan
+          - gnome-calculator
+          - gnome-clocks
+          - gnome-calendar
+          - libreoffice*
+          - remmina
+          - transmission-gtk
+          - rhythmbox
+          - vim
+          - shotwell
+          - gnome-snapshot
+          - totem
+          - evince
+          - gedit
+        state: absent
+        autoremove: true
+        purge: true
+
+    - name: Remove thunderbird snap
+      community.general.snap:
+        name: thunderbird
+        state: absent
+        purge: true
+
+    - name: Remove thunderbird config directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ ansible_env.HOME }}/.thunderbird"
+        - "{{ ansible_env.HOME }}/.mozilla-thunderbird"
+
+    - name: Autoremove unused packages
+      ansible.builtin.apt:
+        autoremove: true
+
+    - name: Clean apt cache
+      ansible.builtin.apt:
+        autoclean: true
+
+    - name: Vacuum system logs older than 1 day
+      ansible.builtin.command: journalctl --vacuum-time=1d
+      changed_when: true
+
+    - name: Remove thumbnail cache
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/.cache/thumbnails"
+        state: absent

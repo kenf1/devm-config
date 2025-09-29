@@ -29,5 +29,5 @@
     "flakes"
   ];
 
-  # system.stateVersion = "23.05";
+  # system.stateVersion = "25.05"; #or unstable
 }

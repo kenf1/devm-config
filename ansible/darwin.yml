@@ -1,0 +1,29 @@
+---
+- name: Setup and configure darwin
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Disable Homebrew analytics
+      command: brew analytics off
+
+    - name: Copy remote_dotfiles to ~/dotfiles directory
+      synchronize:
+        src: ./remote_dotfiles/
+        dest: ~/dotfiles/
+        recursive: yes
+      delegate_to: localhost
+
+    - name: Run stow on dotfiles directory
+      command: stow .
+      args:
+        chdir: ~/dotfiles
+
+    - name: Clone Neovim starter
+      git:
+        repo: https://github.com/NvChad/starter.git
+        dest: ~/.config/nvim
+        update: yes
+
+    - name: Run codium extension install script
+      command: sh ./scripts/codium_ext.sh
