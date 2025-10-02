@@ -3,7 +3,7 @@
   homebrew = {
     enable = true;
 
-    brews = [ 
+    brews = [
       "node"
       "oh-my-posh"
     ];
@@ -13,6 +13,7 @@
       "lulu"
       "github"
       "pearcleaner"
+      "exifcleaner"
     ];
 
     onActivation = {
