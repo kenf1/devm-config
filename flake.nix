@@ -46,6 +46,13 @@
           ];
         };
 
+        "mobiledev" = nix-darwin.lib.darwinSystem {
+          modules = commonModules ++ [
+            nix-homebrew.darwinModules.nix-homebrew
+            ./misc_config/mobiledev/packages.nix
+          ];
+        };
+
         "dsdev" = nix-darwin.lib.darwinSystem {
           modules = commonModules ++ [
             nix-homebrew.darwinModules.nix-homebrew

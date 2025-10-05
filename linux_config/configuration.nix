@@ -15,11 +15,16 @@
   };
 
   environment.systemPackages = with pkgs; [
-    git
-    nvim
+    nixfmt
+    nil
+
     htop
     curl
     wget
+
+    git
+    nvim
+    vscodium
   ];
 
   virtualisation.docker.enable = true;

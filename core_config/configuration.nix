@@ -13,10 +13,11 @@ in
       persistent-apps = [
         "/Applications/Nix Apps/Firefox.app"
         "/Applications/Nix Apps/Brave Browser.app"
+        "/Applications/Nix Apps/LocalSend.app"
+        "/Applications/ExifCleaner.app"
         "/Applications/GitHub Desktop.app"
         "/Applications/Nix Apps/VSCodium.app"
         "/Applications/Ghostty.app"
-        "/Applications/Nix Apps/LocalSend.app"
         "/System/Applications/System Settings.app"
       ];
     };
