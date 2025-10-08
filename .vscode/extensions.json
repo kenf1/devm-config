@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "jnoortheen.nix-ide",
+        "jeff-hykin.better-nix-syntax",
+        "esbenp.prettier-vscode",
+        "phil294.git-log--graph"
+    ]
+}
